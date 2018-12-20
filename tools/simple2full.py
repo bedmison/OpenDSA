@@ -469,8 +469,8 @@ def extract_sec_config(sec_json):
       for k, v in sect_options[current_module][sec_title].iteritems():
         sections_config[sec_title][k] = v
       del sect_options[current_module][sec_title]
-    if 'extertool' in sections_config[sec_title].keys():
-      sections_config[sec_title] = sections_config[sec_title]['extertool']
+    #if 'extertool' in sections_config[sec_title].keys():
+    #  sections_config[sec_title] = sections_config[sec_title]['extertool']
 
   return sections_config
 
@@ -498,14 +498,15 @@ def extract_exs_config(exs_json):
 
       if isinstance(x, dict) and 'extertool' in x.keys():
         ex_obj = x['extertool']
-        exs_config['extertool'] = OrderedDict()
-        exs_config['extertool']['learning_tool'] = ex_obj['@learning_tool']
-        exs_config['extertool']['resource_type'] = ex_obj['@resource_type']
-        exs_config['extertool']['resource_name'] = ex_obj['@resource_name']
-        exs_config['extertool']['points'] = float(ex_obj['@points'])
-        if ex_obj['@resource_name'] in ex_options[current_module]:
+        exer_name = ex_obj['@resource_name']
+        exs_config[exer_name] = OrderedDict()
+        exs_config[exer_name]['learning_tool'] = ex_obj['@learning_tool']
+        exs_config[exer_name]['resource_type'] = ex_obj['@resource_type']
+        exs_config[exer_name]['resource_name'] = ex_obj['@resource_name']
+        exs_config[exer_name]['points'] = float(ex_obj['@points'])
+        if exer_name in ex_options[current_module]:
           for key, value in ex_options[current_module][ex_obj['@resource_name']].iteritems():
-              exs_config['extertool'][key] = value
+              exs_config[exer_name][key] = value
           del ex_options[current_module][ex_obj['@resource_name']]
 
       if isinstance(x, dict) and 'inlineav' in x.keys() and x['inlineav']['@type'] == "ss":
@@ -556,14 +557,15 @@ def extract_exs_config(exs_json):
 
     if 'extertool' in exs_json.keys():
       ex_obj = exs_json['extertool']
-      exs_config['extertool'] = OrderedDict()
-      exs_config['extertool']['learning_tool'] = ex_obj['@learning_tool']
-      exs_config['extertool']['resource_type'] = ex_obj['@resource_type']
-      exs_config['extertool']['resource_name'] = ex_obj['@resource_name']
-      exs_config['extertool']['points'] = float(ex_obj['@points'])
-      if ex_obj['@resource_name'] in ex_options[current_module]:
+      exer_name = ex_obj['@resource_name']
+      exs_config[exer_name] = OrderedDict()
+      exs_config[exer_name]['learning_tool'] = ex_obj['@learning_tool']
+      exs_config[exer_name]['resource_type'] = ex_obj['@resource_type']
+      exs_config[exer_name]['resource_name'] = ex_obj['@resource_name']
+      exs_config[exer_name]['points'] = float(ex_obj['@points'])
+      if exer_name in ex_options[current_module]:
           for key, value in ex_options[current_module][ex_obj['@resource_name']].iteritems():
-              exs_config['extertool'][key] = value
+              exs_config[exer_name][key] = value
           del ex_options[current_module][ex_obj['@resource_name']]
 
     if 'inlineav' in exs_json.keys() and exs_json['inlineav']['@type'] == "ss":

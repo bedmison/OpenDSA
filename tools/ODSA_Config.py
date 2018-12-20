@@ -134,7 +134,8 @@ def validate_exercise(exer_name, exercise):
     required_fields = []
     optional_fields = ['exer_options', 'long_name', 'points', 'remove', 'required', 'showhide', 'threshold', 'external_url'
                         'inst_book_id','module_position','inst_exercise_id',
-                        'inst_chapter_id','options','inst_module_id','id', 'total_points']
+                        'inst_chapter_id','options','inst_module_id','id', 'total_points',
+                        'learning_tool', 'resource_type', 'resource_name', 'launch_url']
 
     # Ensure required fields are present
     for field in required_fields:
@@ -370,10 +371,18 @@ def group_exercises(conf_data, no_lms):
                 for section in sections:
                     section_obj = sections[section]
                     if section_obj != None and isinstance(section_obj, dict):
-                      for attr in section_obj:
-                          if isinstance(section_obj[attr], dict):
-                              exercise_obj = section_obj[attr]
-                              conf_data['chapters'][chapter][module]['exercises'][attr] = exercise_obj
+                        for attr in section_obj:
+                            if isinstance(section_obj[attr], dict):
+                                if 'learning_tool' in section_obj[attr].keys():
+                                    exercise_obj = {}
+                                    exercise_obj['long_name'] = attr
+                                    exercise_obj['learning_tool'] = section_obj[attr]['learning_tool']
+                                    if 'launch_url' in section_obj[attr]:
+                                        exercise_obj['launch_url'] = section_obj[attr]['launch_url']
+                                        exercise_obj['id'] = section_obj[attr]['id']
+                                else:
+                                    exercise_obj = section_obj[attr]
+                                conf_data['chapters'][chapter][module]['exercises'][attr] = exercise_obj
                     if 'learning_tool' in section_obj.keys():
                         exercise_obj = {}
                         exercise_obj['long_name'] = section
