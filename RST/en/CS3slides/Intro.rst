@@ -34,6 +34,7 @@ Introduction
    * Each data structure has costs and benefits.
       * Rarely is one data structure better than another in all situations.
    * Any data structure requires:
+
       * space for each data item it stores,
       * time to perform each basic operation,
       * programming effort.
@@ -42,7 +43,7 @@ Introduction
 
 .. slide:: Data Structure
 
-   * A data structure is the physical implementation of an ADT.
+   * A data structure is the physical implementation of an Abstract Data Type (ADT).
       * Each operation associated with the ADT is implemented by one
         or more subroutines in the implementation.
    * Data structure usually refers to an organization for data in main

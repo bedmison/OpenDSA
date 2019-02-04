@@ -4,7 +4,7 @@
 .. distributed under an MIT open source license.
 
 .. avmetadata::
-   :author: Cliff Shaffer
+   :author: Bob Edmison
 
 .. slideconf::
    :autoslides: False
@@ -28,9 +28,9 @@ Introduction
 .. slide:: Administration stuff
 
    * Sign-in sheet (be sure to sign-in on one of them)
-   * Get a copy of the syllabus
+   * Read the **Syllabus**
    * Force Add System:
-      * https://cs.vt.edu/Academics/Undergraduate/ForceAdd.html/
+      * https://cs.vt.edu/Academics/Undergraduate/ForceAdd.html
       * See at end "By Permission"
 
 .. slide:: Course Mechanics
@@ -43,9 +43,10 @@ Introduction
    We will use Canvas
 
    * Project specs and supporting documents
-   * Link to Piazza forum
+   * Link to Discussion forums
    * Post scores and grades
    * Access to OpenDSA (online textbook)
+     - https://canvas.vt.edu/courses/88484/
 
 .. slide:: Role in the Curriculum
 
@@ -71,6 +72,8 @@ Introduction
 
   * Access OpenDSA through Canvas->Modules
 
+  * https://canvas.vt.edu/courses/88484/
+
   * Lots of visualizations, exercises
 
   * Mastery-based approach
@@ -81,7 +84,7 @@ Introduction
 
 .. slide:: Web-CAT
 
-  * Get the updated plugin
+  * Get the updated plugin ( See OpenDSA Chapter 2.4)
   * Project submission
   * Support for junit testing
   * Auto-grading: Correctness, style
@@ -101,7 +104,9 @@ Introduction
 .. slide:: Homework
 
    * Look at Canvas
-   * Look at Piazza site, make sure you are enrolled there
+     - Assignments
+     - Discussion Forums
+     - OpenDSA textbook site
    * Look at Project 1 spec: Will discuss next time
    * Do Chapter 1 exercises in OpenDSA by 11:00pm Thursday (in 2 days)
 
@@ -109,4 +114,4 @@ Introduction
 
    * Put your name and PID on sign-up sheet
    * If you need to force add the course:
-      *  https://cs.vt.edu/Academics/Undergraduate/ForceAdd.html/
+      *  https://cs.vt.edu/Academics/Undergraduate/ForceAdd.html

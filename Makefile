@@ -181,6 +181,12 @@ CS3F18slides: min
 CS3F18notes: min
 	python $(CONFIG_SCRIPT) config/CS3F18slides.json --no-lms -b CS3F18notes --no-lms
 
+CS3S19slides: min
+	python $(CONFIG_SCRIPT) -s config/CS3S19slides.json --no-lms
+
+CS3S19notes: min
+	python $(CONFIG_SCRIPT) config/CS3S19slides.json --no-lms -b CS3S19notes --no-lms
+
 CS4104: min
 	python $(CONFIG_SCRIPT) config/CS4104.json --no-lms
 

@@ -102,7 +102,6 @@ Binary Trees Part 3
 .. slide:: Inheritance (3)
 
    .. inlineav:: expressionTraversalCON ss
-      :long_name: Expression Tree Traversal Slideshow
       :links: AV/Binary/BTCON.css
       :scripts: AV/Binary/expressionTraversalCON.js
       :output: show

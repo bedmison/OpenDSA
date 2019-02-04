@@ -4,7 +4,7 @@
 .. distributed under an MIT open source license.
 
 .. avmetadata::
-   :author: Cliff Shaffer
+   :author: Bob Edmison
 
 .. slideconf::
    :autoslides: False
@@ -13,22 +13,37 @@
 Project 1 Design
 ================
 
-.. slide:: Generalizing Container Classes
+.. slide:: Project 1
 
-   | Normally for container classes we would want to detach the
-     implementation from the data type. But since the hash function is
-     tied to the key type, we will hard-code the hash tables to the
-     extent that the key type is a String. (But the data type should
-     still be flexible.)
+   | Use a Binary Search Tree (BST) to store and query a collection of rectangles
 
-   | The Memory Manager has a byte array (it doesn't know strings)
+   | See Section 7.11 in the OpenDSA book for more on BSTs
+
+   | Program will take a file with commands, and output a file with the results of those commands
+
+   | See https://canvas.vt.edu/courses/83419/assignments/562538 for more info
+
+.. slide:: Design Considerations
+
+   | The BST is being asked to do two things:
+
+     1. Handle searches by name, which is the key value for the record
+
+     2. Handle other operations that that the BST does not deal well with natively
+        * Region search (does a rectangle occupy (partially or completely) the specified 2-D space
+
+        * Remove a rectangle
+
+        * Computer intersections between rectangles.
+
+   | Design this generically, so that the BST doesn't need to know about the data type.
 
 
-.. slide:: Breaking Down the Project (1)
+.. slide:: Breaking Down the Project
 
-   | A bad design: Main file (Recordstore.java) initializes program and
-     implements the command processor. Calls hash table to do main
-     operations (which calls memory manager as necessary).
+   | A bad design: Main file (Rectangle1.java) initializes program and
+     implements the command processor. Calls BST manager to do main
+     operations (which calls BST as necessary).
 
 
 .. slide:: Breaking Down the Project (2)
@@ -38,5 +53,89 @@ Project 1 Design
        couple of them end up small this time).
    |   Main class only initializes the program
    |   Command syntax is done in separate command processor class
-   |   Command semantics are handled in a separate "world" or "database"
-       class. For P1, this has hash table and memory manager objects.
+
+.. slide:: Grading
+
+   | Due no later than 11:00 PM ET on 21 Feb.
+
+   | Potential early delivery bonus if complete by 11:00 PM ET on 19 Feb
+
+      * "Potential"? - At discretion of the graders, based on the completeness of your submission.
+
+.. slide:: Incremental Development
+
+   | Break the project into a small initial core
+   | Implement and TEST and COMMENT the core
+   | Then gradually add functionality
+   | On any given day, write only as much code as you have time to debug
+     THAT DAY
+   | This works well with Scheduling and Organizing
+
+.. note::
+
+   For our projects, you need implementation, comments, and tests.
+   If you write the comments (especially javadoc comments) and the
+   tests when you add a functional unit, its not that big a burden.
+   If you add them at the end, it feels really tedious (and you don't
+   get any of the benefits).
+
+
+.. slide:: Milestones
+
+   | Big positive effect with milestones (S16) vs without (F14)
+
+   =====  ===   ===
+   Grade  F14   S16
+   =====  ===   ===
+   A      23%   43%
+   B      22%   16%
+   C      11%   11%
+   C-/D    6%    8%
+   F       5%    4%
+   Drop   33%   19%
+   =====  ===   ===
+
+.. note::
+
+   20% more A's
+   59% vs 45% A&B's
+   Fewer drops
+
+.. slide:: Working with a Partner (1)
+
+   | Typically, about half to 2/3 of students work with a partner.
+   | As a population, we cannot distinguish differences in performance
+     in terms of score distribution between partnerships and singles.
+   | Data indicate that each member of partnership works about 80% as
+     much as a person working alone.
+
+
+.. slide:: Working with a Partner (2)
+
+   | About 1/3 of partnerships end badly.
+   |   The common complaint is one blaming the other for "letting me down".
+
+   | Two approaches:
+   |   Divide and Conquer: Bad
+   |   Extreme Programming: Good
+
+.. note::
+
+   Historically, about 1/3 of CS3114 partnerships have
+   crashed-and-burned. The most common culprit appears to be that one
+   person thought that the other person "let me down". This stems from
+   (is even possible because of) lack of cohesiveness. Meaning: The
+   did not work together.
+
+   Divide-and-conquer reduces to "throw it over the wall". Even if
+   both parties hold up their end, this leads to inefficiencies in
+   putting the pieces together. And its easier to work without design
+   discipline. With two pairs of eyes on everything, quality is more
+   likely.
+
+   Extreme Programming: Everything is done together. Design
+   together. Code together. Debug together.
+
+   The one place where you might want to separate: "Tiger-team
+   testing". Meaning, one person writes test cases for the other
+   person's code.
