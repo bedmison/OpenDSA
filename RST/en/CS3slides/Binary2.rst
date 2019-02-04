@@ -70,24 +70,15 @@ Binary Trees Part 2
    node.  This is a full binary tree.
 
 
-.. slide:: Dictionary
+.. slide:: Binary Search Trees
 
-   .. codeinclude:: Design/Dictionary
-      :tag: DictionaryADT
+   * Definition: A Binary Search Tree (BST) s a binary tree that is either empty or in which the data element of each node has a key, and:
 
+        1. All keys in the left subtree (if there is one) are less than (or equal to) the key in the root node.
 
-.. slide:: .
+        2. All keys in the right subtree (if there is one) are greater than the key in the root node.
 
-   .
-
-
-.. slide:: Dictionary (2)
-
-   * How can we implement a dictionary?
-
-      * We know about array-based lists and linked lists.
-      * They might be sorted or unsorted.
-      * What are the pros and cons?
+        3. The left and right subtrees of the root are binary search trees.
 
 
 .. slide:: Binary Search Trees
@@ -99,6 +90,110 @@ Binary Trees Part 2
       :figwidth: 90%
       :alt: Two Binary Search Trees
 
+   * (a) Insert order 37, 24, 42, 7, 2, 40, 42, 32, 120
+
+   * (b) Insert order 120, 42, 42, 7, 2, 32, 37, 24, 40
+
+
+.. slide:: BST Searching
+
+   * Searching resembles the binary search algorithm on a sorted array
+
+   * A BST offers the advantage of purely dynamic storage,
+     no wasted array cells and no shifting of the array tail on insertion and deletion.
+
+
+.. slide:: BST ``findhelp``
+
+   * What happens when we want to add a value of 30 to this BST?
+
+   .. inlineav:: BSTsearchCON ss
+      :links: AV/Binary/BSTCON.css
+      :scripts: AV/Binary/BSTsearchCON.js
+      :output: show
+
+.. slide:: BST Insertion
+
+   * In a BST, insertion is always at the leaf level.  Traverse the BST,
+      comparing the new value to existing ones, until you find the right spot,
+      then add a new leaf node holding that value.
+
+.. slide:: BST ``inserthelp``
+
+   * What happens when we want to add a value of 30 to this BST?
+
+   .. inlineav:: BSTinsertCON ss
+      :links: AV/Binary/BSTCON.css
+      :scripts: AV/Binary/BSTinsertCON.js
+      :output: show
+
+
+.. slide:: .
+
+   .
+
+.. slide:: BST Deletion
+
+   * Removing a node from a BST is a bit trickier than inserting a node,
+     but it is not complicated if all of the possible cases are considered individually.
+
+   * If the key value is a leaf, removal is easy: Set the relevant node pointer in parent node to NULL.
+
+   * Removing an internal node which has only one subtree is also trivial, just set the
+     relevant child pointer in the parent node to target the root of the subtree.
+
+.. slide:: BST Deletion (2)
+
+   .. odsafig:: Images/BSTDel.png
+      :width: 500
+      :align: center
+      :capalign: justify
+      :figwidth: 90%
+      :alt: Deleting nodes from a BST
+
+   * Let us consider how we can remove the largest key value in a BST.
+
+.. slide:: BST ``deletemax``
+
+   .. inlineav:: BSTdeletemaxCON ss
+      :links: AV/Binary/BSTCON.css
+      :scripts: AV/Binary/BSTdeletemaxCON.js
+      :output: show
+
+.. slide:: BST Deletion (3)
+
+    * Removing internal nodes that has two subtrees is more complex.
+
+    * One simple approach, though expensive, is to set the deleted node's parent
+      to point to one of node's subtrees, and then reinsert the remaining subtree's nodes
+      one at a time.
+        - <EXPENSIVE>
+
+.. slide:: BST Deletion (4)
+
+    * A better alternative is to find a value in one of the subtrees that can replace the key value
+      in the deleted node.
+
+        - But which one?
+
+        - Either:
+            - The least key value 'greater' than the one being removed
+
+            or
+
+            - The greatest key value 'less than' (or equal to) the one being removed
+
+.. slide:: BST ``removehelp``
+
+   .. inlineav:: BSTremoveCON ss
+      :links: AV/Binary/BSTCON.css
+      :scripts: AV/Binary/BSTremoveCON.js
+      :output: show
+
+.. slide:: .
+
+   .
+
 .. slide:: BST as a Dictionary (1)
 
    .. codeinclude:: Binary/BST
@@ -108,42 +203,6 @@ Binary Trees Part 2
 
    .. codeinclude:: Binary/BST
       :tag: BSTb
-
-.. slide:: BST ``findhelp``
-
-   .. inlineav:: BSTsearchCON ss
-      :links: AV/Binary/BSTCON.css
-      :scripts: AV/Binary/BSTsearchCON.js
-      :output: show
-
-
-.. slide:: BST ``inserthelp``
-
-   .. inlineav:: BSTinsertCON ss
-      :links: AV/Binary/BSTCON.css
-      :scripts: AV/Binary/BSTinsertCON.js
-      :output: show
-
-
-.. slide:: BST ``deletemax``
-
-   .. inlineav:: BSTdeletemaxCON ss
-      :links: AV/Binary/BSTCON.css
-      :scripts: AV/Binary/BSTdeletemaxCON.js
-      :output: show
-
-
-.. slide:: BST ``removehelp``
-
-   .. inlineav:: BSTremoveCON ss
-      :links: AV/Binary/BSTCON.css
-      :scripts: AV/Binary/BSTremoveCON.js
-      :output: show
-
-
-.. slide:: .
-
-   .
 
 
 .. slide:: BST Analysis

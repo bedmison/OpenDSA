@@ -39,13 +39,15 @@ Algorithm Analysis
    #. Asymptotic Algorithm Analysis
 
    * Critical resources:
+       - Running time for an algorithm
+
+       - Space for a data structure
 
    * Factors affecting running time:
 
-   * For most algorithms, running time depends on “size” of the input.
+       - For most algorithms, running time depends on “size” of the input.
 
-   * Running time is expressed as :math:`\mathbf{T}(n)` for some
-     function :math:`\mathbf{T}` on input size :math:`n`.
+       - Running time is expressed as :math:`\mathbf{T}(n)` for some function :math:`\mathbf{T}` on input size :math:`n`.
 
 
 .. slide:: Problems, Algorithms, Programs
@@ -53,6 +55,7 @@ Algorithm Analysis
    .. inlineav:: ProblemAlgorithmCON ss
       :links: AV/AlgAnal/ProblemAlgorithmCON.css
       :scripts: AV/AlgAnal/ProblemAlgorithmCON.js
+      :output: show
 
 
 .. slide:: Growth Rate Example (1)
@@ -70,6 +73,22 @@ Algorithm Analysis
 
    .. codeinclude:: Misc/Anal
       :tag: c3p4
+
+.. slide:: Growth Rate Example (1)
+
+   Running times:
+
+   * Example 1: Find largest value :  :math:`\mathbf{T}(n) = cn`
+
+   * Example 2: Assignment :  :math:`\mathbf{T}(n) = c_1`
+
+   * Example 2: Double Loop :  :math:`\mathbf{T}(n) = c_2 n^2`
+
+   * where
+     - :math:`c` = time for the basic operation
+
+     - :math:`n` = size of the input
+
 
 .. slide:: Growth Rate Graph
 
@@ -95,6 +114,13 @@ Algorithm Analysis
 
    Average case:
 
+.. slide:: Best, Worst, Average Cases (2)
+
+   .. inlineav:: AnalCasesDiffCON ss
+      :links: AV/AlgAnal/AnalCasesCON.css
+      :scripts: AV/AlgAnal/AnalCasesDiffCON.js
+      :output: show
+
 
 .. slide:: Which Analysis to Use?
 
@@ -102,6 +128,8 @@ Algorithm Analysis
      difficult to determine.
 
    * When is the worst case time important?
+
+      - Real-time applications
 
 .. slide:: Faster Computer or Algorithm?
 
@@ -113,23 +141,22 @@ Algorithm Analysis
    * n’: size of input that can be processed in one second on new computer
      (in 10,000 computational units)
 
+
 .. slide:: Faster Computer or Algorithm? 2
 
-   .. math::
-
-      \begin{array} {l|r|r|l|r}
-      \mathbf{f(n)} &
-      \mathbf{n} &
-      \mathbf{n'} &
-      \mathbf{Change} &
-      \mathbf{n'/n}\\
-      \hline
-      10n         & 1000 & 10,000 & n' = 10n               & 10\\
-      20n         & 500  & 5000   & n' = 10n               & 10\\
-      5 n \log n  & 250  & 1842   & \sqrt{10} n < n' < 10n & 7.37\\
-      2 n^2       & 70   & 223    & n' = \sqrt{10} n       & 3.16\\
-      2^n         & 13   & 16     & n' = n + 3             & --\\
-      \end{array}
+   +------------------------+--------------------+---------------------+-------------------------------+----------------------+
+   |  :math:`\mathbf{f(n)}` | :math:`\mathbf{n}` | :math:`\mathbf{n'}` | :math:`\mathbf{Change}`       | :math:`\mathbf{n'/n}`|
+   +========================+====================+=====================+===============================+======================+
+   |  :math:`10n`           | :math:`1000`       | :math:`10000`       | :math:`n' = 10n`              | :math:`10`           |
+   +------------------------+--------------------+---------------------+-------------------------------+----------------------+
+   |  :math:`20n`           | :math:`500`        | :math:`5000`        | :math:`n' = 10n`              | :math:`10`           |
+   +------------------------+--------------------+---------------------+-------------------------------+----------------------+
+   |  :math:`5 n \log n`    | :math:`250`        | :math:`1842`        | :math:`\sqrt{10} n < n' < 10n`| :math:`7.37`         |
+   +------------------------+--------------------+---------------------+-------------------------------+----------------------+
+   |  :math:`2 n^2`         | :math:`70`         | :math:`223`         | :math:`n' = \sqrt{10} n`      | :math:`3.16`         |
+   +------------------------+--------------------+---------------------+-------------------------------+----------------------+
+   |  :math:`2^n`           | :math:`13`         | :math:`16`          | :math:`n' = n + 3`            | :math:`--`           |
+   +------------------------+--------------------+---------------------+-------------------------------+----------------------+
 
 .. slide:: Asymptotic Analysis: Big-oh
 
@@ -200,6 +227,8 @@ Algorithm Analysis
 
 .. slide:: Big-Omega :math:`\Omega`
 
+   Big-Oh deals with upper-bounds. Big-Omega deals with lower-bounds.
+
    Definition: For :math:`\textbf{T}(n)` a non-negatively valued
    function, :math:`\textbf{T}(n)` is in the
    set :math:`\Omega(g(n))` if there exist two positive constants :math:`c`
@@ -208,8 +237,6 @@ Algorithm Analysis
 
    Meaning: For all data sets big enough (i.e., :math:`n > n_0`),
    the algorithm always requires more than :math:`cg(n)` steps.
-
-   Lower bound.
 
 
 .. slide:: Big-Omega Example
@@ -242,22 +269,6 @@ Algorithm Analysis
 
    Worst case refers to the worst input from among the choices for
    possible inputs of a given size.
-
-.. slide:: Simplifying Rules
-
-   #. If :math:`f(n)` is in :math:`O(g(n))` and :math:`g(n)` is in
-      :math:`O(h(n))`, then :math:`f(n)` is in :math:`O(h(n))`.
-
-   #. If :math:`f(n)` is in :math:`O(kg(n))` for some constant
-      :math:`k > 0`, then :math:`f(n)` is in :math:`O(g(n))`.
-
-   #. If :math:`f_1(n)` is in :math:`O(g_1(n))` and :math:`f_2(n)` is
-      in :math:`O(g_2(n))`, then :math:`(f_1 + f_2)(n)` is
-      in :math:`O(\max(g_1(n), g_2(n)))`.
-
-   #. If :math:`f_1(n)` is in :math:`O(g_1(n))` and :math:`f_2(n)` is
-      in :math:`O(g_2(n))`, then :math:`f_1(n)f_2(n)` is in
-      :math:`O(g_1(n)g_2(n))`.
 
 .. slide:: Summary
 

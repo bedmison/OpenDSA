@@ -103,7 +103,6 @@ Lists
 .. slide:: Linked List Position (1)
 
    .. inlineav:: llistBadCON ss
-      :long_name: Linked List Slideshow 1
       :links: AV/List/llistCON.css
       :scripts: AV/List/llist.js AV/List/llistBadCON.js
       :output: show
@@ -112,7 +111,6 @@ Lists
 .. slide:: Linked List Position (2)
 
    .. inlineav:: llistBadDelCON ss
-      :long_name: Linked List Slideshow 2
       :links: AV/List/llistCON.css
       :scripts: AV/List/llist.js AV/List/llistBadDelCON.js
       :output: show
@@ -125,7 +123,7 @@ Lists
       :scripts: AV/List/llist.js AV/List/llistInitCON.js
       :align: center
 
-   |
+.. slide:: Linked List Position (4)
 
    .. inlineav:: llistHeaderCON dgm
       :links: AV/List/llistCON.css
@@ -136,7 +134,6 @@ Lists
 .. slide:: Linked List Class (1)
 
    .. inlineav:: llistVarsCON ss
-      :long_name: Linked List Variables Slideshow
       :links: AV/List/llistCON.css
       :scripts: AV/List/llist.js AV/List/llistVarsCON.js
       :output: show
@@ -145,7 +142,6 @@ Lists
 .. slide:: Linked List Class (2)
 
    .. inlineav:: llistConsCON ss
-      :long_name: Linked List Constructors Slideshow
       :links: AV/List/llistCON.css
       :scripts: AV/List/llist.js AV/List/llistConsCON.js
       :output: show
@@ -154,7 +150,6 @@ Lists
 .. slide:: Insertion
 
    .. inlineav:: llistInsertCON ss
-      :long_name: Linked List Insert Slideshow
       :links: AV/List/llistCON.css
       :scripts: AV/List/llist.js AV/List/llistInsertCON.js
       :output: show
@@ -163,7 +158,6 @@ Lists
 .. slide:: Removal
 
    .. inlineav:: llistRemoveCON ss
-      :long_name: Linked List Remove Slideshow
       :links: AV/List/llistCON.css
       :scripts: AV/List/llist.js AV/List/llistRemoveCON.js
       :output: show
@@ -172,7 +166,6 @@ Lists
 .. slide:: Prev
 
    .. inlineav:: llistOtherCON ss
-      :long_name: Linked List Position Slideshow
       :links: AV/List/llistCON.css
       :scripts: AV/List/llist.js AV/List/llistOtherCON.js
       :output: show
@@ -266,7 +259,6 @@ Lists
 .. slide:: Doubly Linked Insert
 
    .. inlineav:: dlistInsertCON ss
-      :long_name: Doubly Linked List Insert
       :links: DataStructures/DoubleLinkList.css AV/List/dlistCON.css
       :scripts: DataStructures/DoubleLinkList.js AV/List/dlist.js AV/List/dlistInsertCON.js
       :output: show   
@@ -275,7 +267,6 @@ Lists
 .. slide:: Doubly Linked Remove
 
    .. inlineav:: dlistRemoveCON ss
-      :long_name: Doubly Linked List Remove
       :links: DataStructures/DoubleLinkList.css AV/List/dlistCON.css
       :scripts: DataStructures/DoubleLinkList.js AV/List/dlist.js AV/List/dlistRemoveCON.js
       :output: show
