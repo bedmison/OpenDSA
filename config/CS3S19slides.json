@@ -73,7 +73,8 @@
     "Jan 24": {
       "CS3slides/Intro": {},
       "CS3slides/P1": {},
-      "CS3slides/Binary2": {}
+      "CS3slides/Binary2": {},
+      "CS3slides/Binary3": {}
     },
     "Jan 29": {
       "CS3slides/AlgAnal": {},
@@ -84,7 +85,8 @@
       "CS3slides/Binary": {}
     },
     "Week 3": {
-      "CS3slides/Binary3": {},
+      "CS3slides/Binary4": {},
+      "CS3slides/AVL": {},
       "CS3slides/JUnit": {},
       "CS3slides/Coding": {},
       "CS3slides/Lists": {}
@@ -107,7 +109,11 @@
       "CS3slides/Indexing": {}
     },
     "Week 14-15": {
-      "CS3slides/Graphs": {}
+      "CS3slides/Graphs": {},
+      "CS3slides/General": {},
+      "CS3slides/Union-Find": {},
+      "CS3slides/23Tree": {},
+      "CS3slides/SkipList": {}
     }
   }
 }

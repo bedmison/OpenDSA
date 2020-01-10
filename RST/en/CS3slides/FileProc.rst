@@ -16,30 +16,6 @@ File Processing and Buffer Pools
 File Processing and Buffer Pools
 --------------------------------
 
-.. slide:: Programmer’s View of Files
-
-   * Logical view of files:
-      * An a array of bytes.
-      * A file pointer marks the current position.
-
-   * Three fundamental operations:
-      * Read bytes from current position (move file pointer)
-      * Write bytes to current position (move file pointer)
-      * Set file pointer to specified byte position.
-
-
-.. slide:: Java File Functions
-
-   ``RandomAccessFile(String name, String mode)``
-
-   ``close()``
-
-   ``read(byte[] b)``
-
-   ``write(byte[] b)``
-
-   ``seek(long pos)``
-
 
 .. slide:: Primary vs. Secondary Storage
 
@@ -50,30 +26,92 @@ File Processing and Buffer Pools
       * Tape drives
       * Flash drives
 
+   * Volatile vs. Persistent storage
+
 
 .. slide:: Comparisons
 
+    * Costs per Megabyte since 1996
 
-   .. math::
+   +--------------+-------------+------------+-------------+--------------+--------------+--------------+--------------+---------------+
+   |  Medium      |        1996 |       1997 |        2000 |         2004 |        2006  |         2008 |         2011 |          2019 |
+   +==============+=============+============+=============+==============+==============+==============+==============+===============+
+   |  RAM         |:math:`45.00`|:math:`7.00`|:math:`1.50` |:math:`0.35`  |:math:`0.15`  |:math:`0.039` |:math:`0.0138`|:math:`0.0124` |
+   +--------------+-------------+------------+-------------+--------------+--------------+--------------+--------------+---------------+
+   |  Disk        |:math:`0.25` |:math:`0.10`|:math:`0.01` |:math:`0.001` |:math:`0.0005`|:math:`0.0001`|:math:`0.0001`|:math:`0.00003`|
+   +--------------+-------------+------------+-------------+--------------+--------------+--------------+--------------+---------------+
+   |  USB Drive   |:math:`--`   |:math:`--`  |:math:`--`   |:math:`0.10`  |:math:`0.09`  |:math:`0.0029`|:math:`0.0018`|:math:`0.0006` |
+   +--------------+-------------+------------+-------------+--------------+--------------+--------------+--------------+---------------+
+   |  floppy      |:math:`0.50` |:math:`0.36`|:math:`0.25` |:math:`0.25`  |:math:`--`    |:math:`--`    |:math:`--`    |:math:`--`     |
+   +--------------+-------------+------------+-------------+--------------+--------------+--------------+--------------+---------------+
+   |  Tape        |:math:`0.03` |:math:`0.01`|:math:`0.001`|:math:`0.0003`|:math:`--`    |:math:`--`    |:math:`--`    |:math:`--`     |
+   +--------------+-------------+------------+-------------+--------------+--------------+--------------+--------------+---------------+
+   |  SSD         |:math:`--`   |:math:`--`  |:math:`--`   |:math:`--`    |:math:`--`    |:math:`--`    |:math:`0.0021`|:math:`0.0002` |
+   +--------------+-------------+------------+-------------+--------------+--------------+--------------+--------------+---------------+
 
-      \begin{array}{l|r|r|r|r|r|r|r}
-      \hline
-      \textbf{Medium}& 1996 & 1997 & 2000 & 2004 & 2006 & 2008 & 2011\\
-      \hline
-      \textbf{RAM}&    \$45.00 & 7.00 & 1.500 & 0.3500 & 0.1500 & 0.0339 & 0.0138\\
-      \textbf{Disk}&      0.25 & 0.10 & 0.010 & 0.0010 & 0.0005 & 0.0001 & 0.0001\\
-      \textbf{USB drive}& -- & --   & --    & 0.1000 & 0.0900 & 0.0029 & 0.0018\\
-      \textbf{Floppy}&    0.50 & 0.36 & 0.250 & 0.2500 & -- & -- & --\\
-      \textbf{Tape}&      0.03 & 0.01 & 0.001 & 0.0003 & -- & -- & --\\
-      \textbf{Solid State}& -- & --   &  --   &  --    & -- & -- & 0.0021\\
-      \hline
-      \end{array}
 
-   * (Costs per Megabyte)
+.. slide:: Comparisons
 
-   * RAM is usually volatile.
+    .. odsafig:: Images/File_CostPerMBOverTime.png
+          :width: 700
+          :height: 481
+          :align: center
+          :capalign: justify
+          :alt: A line graph showing the cost reduction over time of various storage methods per megabyte. Costs have dropped in some cases four orders of magnitude since 1996
+
+
+.. slide:: Story time
+
+    .. odsafig:: Images/files_ibm1401.jpg
+          :width: 600
+          :height: 386
+          :align: center
+          :capalign: justify
+          :alt: Image of an IBM 1401 mainframe from the early 1960s
+
+.. slide:: Story time
+
+    .. odsafig:: Images/files_core_rope_memory.jpg
+          :width: 600
+          :height: 470
+          :align: center
+          :capalign: justify
+          :alt: Image of core rope memory from the early 1960s
+
+.. slide:: Story time
+
+    .. odsafig:: Images/files_ibm1406.jpg
+          :width: 550
+          :height: 521
+          :align: center
+          :capalign: justify
+          :alt: Image of an IBM 1406 12 kilobyte storage module
+
+.. slide:: Comparisons
+
+   * A IBM 1406 held 12k of core storage, and cost about $55,100 in 1965
+
+        - $442,000 adjusted for inflation
+
+        - 1 MB (which didn't really exist) of RAM would cost $36.8M in 2019 dollars
+
+   * An IBM 1405 Disk Drive held 10MB, and cost about $36,000 in 1965
+
+        - About $28,800 / MB in 2019 dollars
+
+.. slide:: Comparisons
+
+   * Cost is directly related to access speed.
 
    * RAM is about 1/2 million times faster than disk.
+
+        - Secondary storage access is measured in milliseconds
+
+        - RAM access is measured in nanoseconds
+
+   * Overall, secondary storage (and in some cases primary) is so cheap now as to be considered a consumable.
+
+   * Now, time is the most expensive factor.
 
 
 .. slide:: Golden Rule of File Processing
@@ -169,11 +207,13 @@ File Processing and Buffer Pools
 
    * Assume all records are on 8 contiguous tracks.
 
+   * First track: Avg Seek Time + (Rotation Time)(1.5 rotations) = First track time in ms
+
    * First track: 9.5 + (11.1)(1.5) = 26.2 ms
 
    * Remaining 7 tracks: 2.2 + (11.1)(1.5) = 18.9ms.
 
-   * Total: 26.2 + 7 * 18.9 = 158.5ms
+   * Total: 26.2 + (7 * 18.9) = 158.5ms
 
 
 .. slide:: Disk Access Cost Example (2)
@@ -322,6 +362,32 @@ File Processing and Buffer Pools
 .. slide:: Improved Interface (2)
 
    .. codeinclude:: BufferPool/BufferPoolADT
+
+
+.. slide:: Programmer’s View of Files
+
+   * Logical view of files:
+      * An a array of bytes.
+      * A file pointer marks the current position.
+
+   * Three fundamental operations:
+      * Read bytes from current position (move file pointer)
+      * Write bytes to current position (move file pointer)
+      * Set file pointer to specified byte position.
+
+
+.. slide:: Java File Functions
+
+   ``RandomAccessFile(String name, String mode)``
+
+   ``close()``
+
+   ``read(byte[] b)``
+
+   ``write(byte[] b)``
+
+   ``seek(long pos)``
+
 
 
 .. slide:: External Sorting

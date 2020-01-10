@@ -18,7 +18,7 @@ Memory Management
 
 .. slide:: Memory Management
 
-   * Problem: Records (of various lengths) need to be stored.
+   * Problem: Not every individual datapoint is the same size. Records (of various lengths) need to be stored.
 
    * Model: A big array of space to store them, managed by a memory
      manager.

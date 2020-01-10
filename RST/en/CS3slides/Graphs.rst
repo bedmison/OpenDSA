@@ -25,32 +25,40 @@ Graphs
    * The number of vertices is written :math:`|V|`, and the number
      edges is written :math:`|E|`.
 
+   .. odsafig:: Images/GdirundirCON.png
+      :width: 800
+      :align: center
+      :capalign: justify
+      :figwidth: 90%
+      :alt: Examples of (a) an undirected graph, (b) a directed graph, and (c) a labeled graph
 
-   .. inlineav:: GdirundirCON dgm 
-      :links: AV/Graph/GraphDefCON.css
-      :scripts: AV/Graph/GdirundirCON.js
-      :output: show
 
 
 .. slide:: Paths, Cycles
 
-   .. inlineav:: GneighborCON dgm
-      :links: AV/Graph/GraphDefCON.css
-      :scripts: AV/Graph/GneighborCON.js
-      :output: show
+   .. odsafig:: Images/GneighborCON.png
+      :width: 800
+      :align: center
+      :capalign: justify
+      :figwidth: 90%
+      :alt: Examples of (a) an undirected graph, (b) a directed graph, and (c) a labeled graph
 
-   .. inlineav:: GpathDefCON dgm 
-      :links: AV/Graph/GraphDefCON.css
-      :scripts: AV/Graph/GpathDefCON.js
-      :output: show 
+   .. odsafig:: Images/GpathDefCON.png
+      :width: 800
+      :align: center
+      :capalign: justify
+      :figwidth: 90%
+      :alt: Examples of (a) an undirected graph, (b) a directed graph, and (c) a labeled graph
 
 
 .. slide:: Connected Components
 
-   .. inlineav:: GconcomCON dgm
-      :links: AV/Graph/GraphDefCON.css
-      :scripts: AV/Graph/GconcomCON.js
-      :output: show
+   .. odsafig:: Images/GconcomCON.png
+      :width: 800
+      :align: center
+      :capalign: justify
+      :figwidth: 90%
+      :alt: Examples of (a) an undirected graph, (b) a directed graph, and (c) a labeled graph
 
    * The maximum connected subgraphs of an undirected graph are called
      connected components.
@@ -58,18 +66,21 @@ Graphs
 
 .. slide:: Directed Graph Representation
 
-   .. inlineav:: GdirRepCON dgm 
-      :links: AV/Graph/GraphDefCON.css
-      :scripts: AV/Graph/GdirRepCON.js
-      :output: show
-
+   .. odsafig:: Images/GDirRepCON.png
+      :width: 800
+      :align: center
+      :capalign: justify
+      :figwidth: 90%
+      :alt: A representation of a directed graph
 
 .. slide:: Undirected Graph Representation
 
-   .. inlineav:: GundirRepCON dgm 
-      :links: AV/Graph/GraphDefCON.css
-      :scripts: AV/Graph/GundirRepCON.js
-      :output: show 
+   .. odsafig:: Images/GundirRepCON.png
+      :width: 800
+      :align: center
+      :capalign: justify
+      :figwidth: 90%
+      :alt: A representation of an undirected graph
 
 
 .. slide:: Representation Space Costs
@@ -179,7 +190,11 @@ Graphs
 
 .. slide:: Depth-First Topological Sort (1)
 
-   .. avembed:: AV/Graph/topSort.html ss
+    .. inlineav:: topSortDFSCON ss
+       :long_name: TopSort Slideshow
+       :links: AV/Graph/topSortDFSCON.css
+       :scripts: AV/Graph/topSortDFSCON.js
+       :output: show
 
 
 .. slide:: .
@@ -200,7 +215,11 @@ Graphs
 
 .. slide:: Queue-Based Topsort (2)
 
-   .. avembed:: AV/Graph/qTopSort.html ss
+   .. inlineav:: topSortQCON ss
+      :long_name: topSortQCON Slideshow
+      :links: AV/Graph/topSortQCON.css
+      :scripts: AV/Graph/topSortQCON.js
+      :output: show
 
 
 .. slide:: .
@@ -255,12 +274,12 @@ Graphs
 
 .. slide:: Dijkstra’s Algorithm Example
 
-   .. avembed:: AV/Graph/DijkstraAV.html ss
+   .. inlineav:: DijkstraCON ss
+      :long_name: Dijkstra Slideshow
+      :links: AV/Graph/DijkstraCON.css
+      :scripts: AV/Graph/DijkstraCON.js
+      :output: show
 
-
-.. slide:: .
-
-   .
 
 .. slide:: Dijkstra’s Implementation
 
@@ -349,7 +368,11 @@ Graphs
 
 .. slide:: Prim’s MST Algorithm
 
-   .. avembed:: AV/Graph/PrimAV.html ss
+    .. inlineav:: primCON ss
+       :long_name: Prim's Minimum Cost Spanning Tree Algorithm Slideshow
+       :links: AV/Graph/primCON.css
+       :scripts: AV/Graph/primCON.js
+       :output: show
 
 
 .. slide:: .

@@ -6,7 +6,7 @@ $(document).ready(function () {
   // Create an array object under control of JSAV library
   var arr = av.ds.array(empty, {indexed: true});
 
-  av.umsg("We will demonstrate the mod hash function. To make the compuation easy (because you can probably do mod by 10 in your head easily) we will store records in an array of size 10.");
+  av.umsg("We will demonstrate the mod hash function. To make the computation easy (because you can probably do mod by 10 in your head easily) we will store records in an array of size 10.");
   av.displayInit();
 
   av.umsg("We store the record with key value i at array position i % 10. So we have no restriction on key range.");

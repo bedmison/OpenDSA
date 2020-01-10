@@ -167,7 +167,8 @@ Binary Trees Part 2
     * One simple approach, though expensive, is to set the deleted node's parent
       to point to one of node's subtrees, and then reinsert the remaining subtree's nodes
       one at a time.
-        - <EXPENSIVE>
+
+        - **EXPENSIVE**
 
 .. slide:: BST Deletion (4)
 
@@ -177,6 +178,7 @@ Binary Trees Part 2
         - But which one?
 
         - Either:
+
             - The least key value 'greater' than the one being removed
 
             or

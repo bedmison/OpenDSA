@@ -16,9 +16,18 @@ Hashing
 Hashing
 -------
 
-.. slide:: Hashing (1)
+.. slide:: Hashing
 
-   Hashing: The process of mapping a key value to a position in a table.
+   Definition: A method for storing and retrieving records from a database.
+
+   Allows for the insert, delete, and search of records based on a search key value.
+
+   Properly implemented, a hash system will look at only one or two records for each operation
+
+   Performs much better than the typical :math:`O(log n)` for binary search.
+
+
+.. slide:: Hashing (2)
 
    A hash function maps key values to positions.  It is denoted by :math:`h`.
 
@@ -27,7 +36,7 @@ Hashing
    **HT** has :math:`M` slots, indexed form 0 to :math:`M-1`.
 
 
-.. slide:: Hashing (2)
+.. slide:: Hashing (3)
 
    For any value :math:`K` in the key range and some hash function
    :math:`h`, :math:`h(K) = i`, :math:`0 <= i < M`, such that
@@ -48,17 +57,24 @@ Hashing
       :scripts: AV/Hashing/hashIntroCON.js
       :output: show
 
-   * More reasonable example:
-      * Store about 1000 records with keys in range 0 to 16,383.
-      * Impractical to keep a hash table with 16,384 slots.
-      * We must devise a hash function to map the key range to a
-        smaller table.
+.. slide:: More reasonable example
+
+   * Store all of the student records in a class; need an array :math:`C`
+
+   * Hash function - truncate IDs to last 4 digits: :math:`H(IDNum) = IDNum % 10000`
+
+   * Given an ID number :math:`X`, the hash record would be at :math:`C[H(x)]`
+
+   * Potential problem: What happens if :math:`H(IDNum) = IDNum % 10000` produces the same location for two different keys?
+        **Collision!**
 
 
 .. slide:: Collisions (1)
 
+
    * Given: hash function **h** with keys :math:`k_1` and :math:`k_2`.
-     :math:`\beta` is a slot in the hash table.
+
+   * :math:`\beta` is a slot in the hash table.
 
    * If :math:`\mathbf{h}(k_1) = \beta = \mathbf{h}(k_2)`, then
      :math:`k_1` and :math:`k_2` have a collision at :math:`\beta`
@@ -78,6 +94,8 @@ Hashing
         birthday.
 
    .. avembed:: AV/Hashing/Birthday.html pe
+
+   * Selecting a *good* hash function can minimize collisions
 
 
 .. slide:: Hash Functions (1)
@@ -119,6 +137,12 @@ Hashing
 
 .. slide:: Binning
 
+   ::
+
+      int h(int x) {
+        return x / 10;
+      }
+
    .. inlineav:: hashFuncExCON2 ss
       :long_name: Hash Function Slideshow 2
       :links: 
@@ -152,6 +176,7 @@ Hashing
 
    ::
 
+      //Convert string to ascii code values and sum them.
       int sascii(String x, int M) {
         char ch[];
         ch = x.toCharArray();
@@ -172,6 +197,12 @@ Hashing
       :tag: sfold
 
    .. avembed:: AV/Hashing/StringSfold.html pe
+
+.. slide:: Collision resolution
+
+   **Open Hashing** - Collisions are stored outside the hashtable ( ie each slot is the head of a linked list )
+
+   **Closed Hashing** - Collisions are stored in another slot in the hashtable
 
 
 .. slide:: Open Hashing

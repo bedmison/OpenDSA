@@ -18,10 +18,12 @@ General Trees
 
 .. slide:: General Trees
 
-   .. inlineav:: GenTreeCON dgm
-      :links: AV/General/GenTreeCON.css
-      :scripts: AV/General/GenTreeCON.js
-      :align: justify
+   .. odsafig:: Images/GTreeFig.png
+      :width: 500
+      :align: center
+      :capalign: justify
+      :figwidth: 90%
+      :alt: Diagram of general trees.
 
 
 .. slide:: General Tree ADT

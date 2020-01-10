@@ -19,11 +19,11 @@ Sorting Part 1
 .. slide:: Sorting
 
    * Each record contains a field called the key.
-      * Linear order: comparison.
+      * Place records in linear order by key comparison.
 
    * Measures of cost:
-      * Comparisons
-      * Swaps
+      * Number of comparisons between keys
+      * Number of swap operations (when records are large)
 
 .. slide:: Insertion Sort
 
@@ -35,7 +35,7 @@ Sorting Part 1
    respect to the first two, and so on.
 
 
-.. slide:: Initial Step
+.. slide:: Insertion Sort - Initial Step
  
    Consider this start to the process.
 
@@ -46,7 +46,7 @@ Sorting Part 1
       :output: show
             
 
-.. slide:: Analysis: Worst Case
+.. slide:: Insertion Sort Analysis: Worst Case
 
    .. inlineav:: InsertionSortWorstCaseCON ss
       :long_name: Insertion Sort Worst Case Slideshow
@@ -55,7 +55,7 @@ Sorting Part 1
       :output: show
 
 
-.. slide:: Analysis: Best Case
+.. slide:: Insertion Sort Analysis: Best Case
 
    .. inlineav:: InsertionSortBestCaseCON ss
       :long_name: Insertion Sort Best Case Slideshow
@@ -64,7 +64,7 @@ Sorting Part 1
       :output: show
 
 
-.. slide:: Analysis: Average Case
+.. slide:: Insertion Sort Analysis: Average Case
 
    .. inlineav:: InsertionSortAverageCaseCON ss
       :long_name: Insertion Sort Average Case Slideshow
@@ -72,6 +72,24 @@ Sorting Part 1
       :scripts: AV/Sorting/InsertionSortAverageCaseCON.js
       :output: show
 
+.. slide:: Insertion Sort Analysis:
+
+   * Best Case: :math:`\theta(n)`
+
+   * Worst Case: :math:`\theta(n^2)`
+
+   * Average Case: :math:`\theta(n^2)`
+
+   * While the best case is significantly faster than the average and worst cases,
+     the average and worst cases are usually more reliable indicators of the "typical" running time.
+
+.. slide:: Bubble Sort
+
+   * Bubble sort is one of the first sorting algorithms taught to beginning programmers, which is too bad, because as sorting techniques go, it's pretty terrible.
+
+   * Why is it taught first?: Dead simple to implement.
+
+   * For each pass through the array, the largest value "bubbles up" to the last position in the array.
 
 .. slide:: Bubble Sort
 
@@ -88,7 +106,9 @@ Sorting Part 1
       :output: show
 
 
-.. slide:: Analysis
+.. slide:: Bubble Sort Analysis
+
+   * Best/Worst/Average Case: :math:`\theta(n^2)`
 
    .. inlineav:: BubbleSortAnalysisCON ss
       :long_name: Bubble Sort Analysis Slideshow
@@ -96,6 +116,16 @@ Sorting Part 1
       :scripts: AV/Sorting/BubbleSortAnalysisCON.js
       :output: show
 
+.. slide:: Selection Sort
+
+   Consider again sorting a stack of phone bills...
+
+   Another intuitive approach might be to look through the pile until you find the bill for January,
+   and pull that out. Then look through the remaining pile until you find the bill for February,
+   and add that behind January. Proceed through the ever-shrinking pile of bills to
+   select the next one in order until you are done.
+
+   This is a Selection Sort
 
 .. slide:: Selection Sort
 
@@ -123,20 +153,27 @@ Sorting Part 1
 
 .. slide:: Summary
 
-   .. math::
 
-      \begin{array}{rccc}
-      &\textbf{Insertion}&\textbf{Bubble}&\textbf{Selection}\\
-      \textbf{Comparisons:}\\
-      \textrm{Best Case}&\Theta(n)&\Theta(n^2)&\Theta(n^2)\\
-      \textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n^2)\\
-      \textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n^2)\\
-      \\
-      \textbf{Swaps:}\\
-      \textrm{Best Case}&0&0&\Theta(n)\\
-      \textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\\
-      \textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\\
-      \end{array}
+   +--------------------+--------------------+---------------------+--------------------+
+   |  Comparisons       | Insertion          | Bubble              | Selection          |
+   +====================+====================+=====================+====================+
+   |  Best Case         | :math:`\theta(n)`  | :math:`\theta(n^2)` | :math:`\theta(n^2)`|
+   +--------------------+--------------------+---------------------+--------------------+
+   |  Average Case      | :math:`\theta(n^2)`| :math:`\theta(n^2)` | :math:`\theta(n^2)`|
+   +--------------------+--------------------+---------------------+--------------------+
+   |  Worst Case        | :math:`\theta(n^2)`| :math:`\theta(n^2)` | :math:`\theta(n^2)`|
+   +--------------------+--------------------+---------------------+--------------------+
+
+   +--------------------+--------------------+---------------------+--------------------+
+   |  Swaps             | Insertion          | Bubble              | Selection          |
+   +====================+====================+=====================+====================+
+   |  Best Case         | :math:`0`          | :math:`0`           | :math:`\theta(n)`  |
+   +--------------------+--------------------+---------------------+--------------------+
+   |  Average Case      | :math:`\theta(n^2)`| :math:`\theta(n^2)` | :math:`\theta(n)`  |
+   +--------------------+--------------------+---------------------+--------------------+
+   |  Worst Case        | :math:`\theta(n^2)`| :math:`\theta(n^2)` | :math:`\theta(n)`  |
+   +--------------------+--------------------+---------------------+--------------------+
+
 
 .. slide:: Code Tuning (1)
 

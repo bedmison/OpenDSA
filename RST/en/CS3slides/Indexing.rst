@@ -120,10 +120,12 @@ Indexing
    * The advantage of the 2-3 Tree over the BST is that it can be
      updated at low cost.
 
-   .. inlineav:: twoThreedgmCON dgm
-      :links: AV/Indexing/twoThreeTreeCON.css
-      :scripts: AV/Indexing/twoThreeTreeCON.js AV/Indexing/twoThreedgmCON.js
+   .. odsafig:: Images/23Tree.png
+      :width: 800
       :align: center
+      :capalign: justify
+      :figwidth: 90%
+      :alt: A 2-3 Tree
 
 
 .. slide:: 2-3 Tree Insertion (1)
@@ -207,7 +209,7 @@ Indexing
    * The most commonly implemented form of the B-Tree is the B+-Tree.
 
    * Internal nodes of the B+-Tree do not store record -- only key
-     values to guild the search.
+     values to guide the search.
 
    * Leaf nodes store records or pointers to records.
 
@@ -226,6 +228,7 @@ Indexing
 
    * In this example, an internal node can have 2 to 4 children
    * A leaf node can hold 3 to 5 keys
+   * To find value of 33, start at root, which is just a placeholder. Actual value is at leaf.
 
 .. slide:: B+-Tree Insertion
 
@@ -236,6 +239,16 @@ Indexing
       :figwidth: 90%
       :alt: Examples of :math:`\mathrm{B}^+` tree insertion.
 
+
+.. slide:: B+-Tree Insertion - what happened?
+
+    * (a) B+ tree containing five records.
+
+    * (b) The result of inserting a record with key value 50 into the tree of (a). The leaf node splits, causing creation of the first internal node.
+
+    * (c) The B+ tree of (b) after further insertions.
+
+    * (d) The result of inserting a record with key value 30 into the tree of (c). The second leaf node splits, which causes the internal node to split in turn, creating a new root.
 
 .. slide:: B+-Tree Deletion (1)
 
@@ -256,6 +269,10 @@ Indexing
       :alt: Simple deletion from a :math:`\mathrm{B}^+` tree.
 
 
+.. slide:: B+-Tree Deletion (1)
+
+    * If deleting the value reduces the value leaves the leaf still at least half full, just remove the value.
+
 .. slide:: B+-Tree Deletion (2)
 
    .. odsafig:: Images/BPexamp.png
@@ -275,6 +292,13 @@ Indexing
       :alt: Deletion from a :math:`\mathrm{B}^+` tree via borrowing from
             a sibling.
 
+.. slide:: B+-Tree Deletion (1)
+
+    * If deleting the value reduces the value leaves the leaf below the minimum threshold (the **underflow**),
+      we must do something to keep it sufficiently full.
+
+    * **First choice**: Look at the node's adjacent siblings to determine if they have spare records.
+        If so, transfer enough records from the sibling so that both nodes have about the same number of records.
 
 .. slide:: B+-Tree Deletion (3)
 
@@ -298,6 +322,9 @@ Indexing
 
    .
 
+       * **Second choice**: Under-full node must give up its records to a sibling and be removed from the tree.
+
+
 .. slide:: B-Tree Space Analysis (1)
 
    * B+-Trees nodes are always at least half full.
@@ -307,17 +334,18 @@ Indexing
 
    * Asymptotic cost of search, insertion, and deletion of nodes from
      B-Trees is :math:`\Theta(log n)`.
-   * Base of the log is the (average) branching factor of the tree.
+   * Base of the log is the (average) branching factor of the tree. In practice, DB applications
+   use extremely high branching factors (>100) resuling in very shallow trees.
 
 
 .. slide:: B-Tree Space Analysis (2)
 
    * Example: Consider a B+-Tree of order 100 with leaf nodes
      containing 100 records.
-   * 1 level B+-tree:
-   * 2 level B+-tree:
-   * 3 level B+-tree:
-   * 4 level B+-tree:
+   * 1 level B+-tree: 100 records
+   * 2 level B+-tree: :math:`100 \leq n \leq 10,000` records
+   * 3 level B+-tree: :math:`5,000 \leq n \leq 1M` records
+   * 4 level B+-tree: :math:`250,000 \leq n \leq 100M` records
 
    * Ways to reduce the number of disk fetches:
       * Keep the upper levels in memory.

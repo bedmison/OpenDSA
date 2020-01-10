@@ -176,7 +176,7 @@ Algorithm Analysis
 
    Big-oh notation indicates an upper bound.
 
-   Example: If :math:`\mathbf{T}(n) = 3n^2` then :math:`\mathbf{T}(n)`
+   **Example:** If :math:`\mathbf{T}(n) = 3n^2` then :math:`\mathbf{T}(n)`
    is in :math:`O(n^2)`.
 
    Look for the tightest upper bound:
@@ -187,7 +187,7 @@ Algorithm Analysis
 
 .. slide:: Big-Oh Examples
 
-   Example 1: Finding value X in an array (average cost).
+   **Example 1:** Finding value X in an array (average cost).
 
    Then :math:`\textbf{T}(n) = c_{s}n/2`.
 
@@ -200,7 +200,7 @@ Algorithm Analysis
 
 .. slide:: Big-Oh Examples (2)
 
-   Example 2: Suppose :math:`\textbf{T}(n) = c_{1}n^2 + c_{2}n`, where
+   **Example 2:** Suppose :math:`\textbf{T}(n) = c_{1}n^2 + c_{2}n`, where
    :math:`c_1` and :math:`c_2` are positive.
 
    :math:`c_{1}n^2 + c_{2}n \leq c_{1}n^2 + c_{2}n^2 \leq (c_1 + c_2)n^2`
@@ -211,14 +211,14 @@ Algorithm Analysis
 
    Therefore, :math:`\textbf{T}(n)` is in :math:`O(n^2)` by definition.
 
-   Example 3: :math:`\textbf{T}(n) = c`.  Then :math:`\textbf{T}(n)`
+   **Example 3:** :math:`\textbf{T}(n) = c`.  Then :math:`\textbf{T}(n)`
    is in :math:`O(1)`.
 
 .. slide:: A Common Misunderstanding
 
    “The best case for my algorithm is n=1 because that is the fastest.”
 
-   WRONG!
+   *WRONG!*
 
    Big-oh refers to a growth rate as n grows to :math:`\infty`
 
@@ -301,6 +301,12 @@ Algorithm Analysis
    .. codeinclude:: Misc/Anal
       :tag: c3p4
 
+   * since we know :math:`\sum_{i = 1}^{n} i = \frac{n (n+1)}{2}`
+
+   * and the total cost of the loop is :math:`c3` times the sum of the integers 1 through :math:`n`
+
+   * :math:`\Theta(c_1 + c_2 n + c_3 n^2)` --> :math:`\Theta(n^2)`.
+
 .. slide:: Time Complexity Examples (3)
 
    Example: Compare these two code fragments:
@@ -308,12 +314,18 @@ Algorithm Analysis
    .. codeinclude:: Misc/Anal
       :tag: c3p5
 
+   * Loop cost: :math:`\Theta(n^2)`, though loop 2 requires half as much time to execute.
+
 .. slide:: Time Complexity Examples (4)
 
    Not all double loops are :math:`\Theta(n^2)`.
 
    .. codeinclude:: Misc/Anal
       :tag: c3p6
+
+   * First nested loop: :math:`\Theta(n \log n)`
+
+   * Second nested loop: :math:`\Theta(n)`
 
 .. slide:: Binary Search
 
@@ -325,11 +337,11 @@ Algorithm Analysis
 
 .. slide:: Other Control Statements
 
-   while loop: Analyze like a for loop.
+   ``while`` loop: Analyze like a ``for`` loop.
 
-   if statement: Take greater complexity of then/else clauses.
+   ``if`` statement: Take greater complexity of ``then/else`` clauses.
 
-   switch statement: Take complexity of most expensive case.
+   ``switch`` statement: Take complexity of most expensive case.
 
    Subroutine call: Complexity of the subroutine.
 
@@ -341,7 +353,7 @@ Algorithm Analysis
 
 .. slide:: Analyzing Problems: Example
 
-   May or may not be able to obtain matching upper and lower bounds.
+   We may or may not be able to obtain matching upper and lower bounds.
 
    Example of imperfect knowledge: Sorting
 
